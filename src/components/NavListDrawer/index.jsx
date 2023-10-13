@@ -7,6 +7,7 @@ import {
   ListItemText,
 } from "@mui/material";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const NavListDrawer = ({ navLinks }) => {
   return (
@@ -14,7 +15,7 @@ const NavListDrawer = ({ navLinks }) => {
       <List>
         {navLinks.map((item) => (
           <ListItem key={item.title} disablePadding>
-            <ListItemButton component="a" href={item.path}>
+            <ListItemButton component={Link} to={item.path}>
               <ListItemIcon>{item.icon}</ListItemIcon>
               <ListItemText>{item.title}</ListItemText>
             </ListItemButton>

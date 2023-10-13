@@ -17,6 +17,7 @@ const SingleMovie = ({ poster, title, popularity }) => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        margin: "auto",
       }}
     >
       <Card
@@ -41,14 +42,14 @@ const SingleMovie = ({ poster, title, popularity }) => {
             image={`https://image.tmdb.org/t/p/w500/${poster}`}
             sx={{
               borderRadius: "8px",
-              height: 340.5,
+              height: { xs: 340.5, lg: 250 },
               objectFit: "cover",
               flexGrow: 1,
             }}
           />
           <Box
             sx={{
-              height: 340.5,
+              height: { xs: 340.5, lg: 250 },
               width: "100%",
               position: "absolute",
               background:
@@ -56,7 +57,7 @@ const SingleMovie = ({ poster, title, popularity }) => {
             }}
           >
             <Box sx={{ p: 1, textAlign: "start", color: "#FFF" }}>
-              <Typography sx={{ fontSize: 18 }} variant="h6">
+              <Typography sx={{ fontSize: { xs: 18, lg: 12.5 } }} variant="h6">
                 {title}
               </Typography>
             </Box>

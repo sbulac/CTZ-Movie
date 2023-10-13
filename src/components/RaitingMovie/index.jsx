@@ -3,8 +3,7 @@ import Box from "@mui/material/Box";
 import CircularProgress from "@mui/joy/CircularProgress";
 
 export default function RaitingMovie({ raiting }) {
-  raiting = raiting * 10;
-  console.log(raiting);
+  raiting *= 10;
   let color;
   if (raiting >= 70) {
     color = "success";

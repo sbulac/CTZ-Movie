@@ -9,7 +9,15 @@ import MovieSkeleton from "../components/MovieSkeleton";
 const HomePage = () => {
   return (
     <>
-      <Box sx={{ display: "grid", justifyContent: "center" }}>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: 6,
+        }}
+      >
         <ApiContext.Consumer>
           {({ loading, movies }) => (
             <MoviesContainer>
@@ -24,7 +32,7 @@ const HomePage = () => {
               ) : (
                 <>
                   {movies.map((item, index) => (
-                    <Grid key={index} item xs={12}>
+                    <Grid key={index} item xs={12} sm={5} md={3} lg={2}>
                       <SingleMovie
                         adult={item.adult}
                         title={item["original_title"]}

@@ -5,6 +5,7 @@ import NavListDrawer from "../NavListDrawer";
 import HomeIcon from "@mui/icons-material/Home";
 import ArticleIcon from "@mui/icons-material/Article";
 import PersonIcon from "@mui/icons-material/Person";
+import { Link } from "react-router-dom";
 
 const navLinks = [
   { title: "Inicio", path: "/#", icon: <HomeIcon /> },
@@ -25,8 +26,8 @@ const NavBar = () => {
       <Box sx={{ display: { xs: "none", md: "block" } }}>
         {navLinks.map((item) => (
           <Button
-            component="a"
-            href={item.path}
+            component={Link}
+            to={item.path}
             sx={{ color: "#FFFFFF" }}
             key={item.title}
           >
