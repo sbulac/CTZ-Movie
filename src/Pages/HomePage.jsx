@@ -3,18 +3,26 @@ import React from "react";
 import MoviesContainer from "../components/MoviesContainer";
 import { ApiContext } from "../components/Context/Context";
 import SingleMovie from "../components/SingleMovie";
+import PaginationLayout from "../components/Pagination";
+import MovieSkeleton from "../components/MovieSkeleton";
 
 const HomePage = () => {
   return (
     <>
-      <Box>
+      <Box sx={{ display: "grid", justifyContent: "center" }}>
         <ApiContext.Consumer>
           {({ loading, movies }) => (
-            <>
+            <MoviesContainer>
               {loading ? (
-                <span>nada</span>
+                <>
+                  <MovieSkeleton />
+                  <MovieSkeleton />
+                  <MovieSkeleton />
+                  <MovieSkeleton />
+                  <MovieSkeleton />
+                </>
               ) : (
-                <MoviesContainer>
+                <>
                   {movies.map((item, index) => (
                     <Grid key={index} item xs={12}>
                       <SingleMovie
@@ -26,11 +34,12 @@ const HomePage = () => {
                       />
                     </Grid>
                   ))}
-                </MoviesContainer>
+                </>
               )}
-            </>
+            </MoviesContainer>
           )}
         </ApiContext.Consumer>
+        <PaginationLayout />
       </Box>
     </>
   );

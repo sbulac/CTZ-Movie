@@ -7,7 +7,7 @@ import { ApiProvider } from "./components/Context/Context";
 function App() {
   return (
     <ApiProvider>
-      <Box sx={{backgroundColor: "#252525"}}>
+      <Box>
         <AppBar position="static">
           <Toolbar>
             <Typography

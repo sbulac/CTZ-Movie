@@ -8,24 +8,32 @@ const ApiProvider = ({ children }) => {
   const [infoApi, setInfoApi] = useState({});
   const [movies, setMovies] = useState({});
   const [loading, setLoading] = useState(true);
-  let url =
-    "https://api.themoviedb.org/3/discover/movie?api_key=dd715a9cd97620efc4de9241c2abafaa";
+  const [pageNumber, setPageNumber] = useState(1);
+  let url = `https://api.themoviedb.org/3/discover/movie?include_adult=true&include_video=true&language=en-US&page=${pageNumber}&sort_by=popularity.desc`;
+
+  const options = {
+    method: "GET",
+    headers: {
+      accept: "application/json",
+      Authorization:
+        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkZDcxNWE5Y2Q5NzYyMGVmYzRkZTkyNDFjMmFiYWZhYSIsInN1YiI6IjY1MjgxZWRiODEzODMxMDBjNDhhNWFhMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.6KPof5fVW7pEiLybqvX0KHT0t-CJbREYsysz8TawbPI",
+    },
+  };
 
   useEffect(() => {
     setLoading(true);
     try {
       axios
-        .get(url)
+        .get(url, options)
         .then((response) => {
           setMovies(response.data.results);
-          console.log(movies);
-          // setInfoApi(response.data);
+          setInfoApi(response.data);
         })
         .finally(() => setLoading(false));
     } catch (error) {
       console.error(error);
     }
-  }, []);
+  }, [pageNumber]);
   return (
     <ApiContext.Provider
       value={{
@@ -34,6 +42,8 @@ const ApiProvider = ({ children }) => {
         infoApi,
         movies,
         loading,
+        pageNumber,
+        setPageNumber,
       }}
     >
       {children}

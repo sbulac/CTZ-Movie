@@ -55,7 +55,7 @@ const SingleMovie = ({ poster, title, popularity }) => {
                 "linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.8) 100%)",
             }}
           >
-            <Box sx={{ p: 1, textAlign: "start", color: "#EEE" }}>
+            <Box sx={{ p: 1, textAlign: "start", color: "#FFF" }}>
               <Typography sx={{ fontSize: 18 }} variant="h6">
                 {title}
               </Typography>
