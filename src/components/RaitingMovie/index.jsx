@@ -1,28 +1,20 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import Rating from "@mui/material/Rating";
-import StarIcon from "@mui/icons-material/Star";
+import CircularProgress from "@mui/joy/CircularProgress";
 
 export default function RaitingMovie({ raiting }) {
-  const value = raiting / 2;
-
+  console.log(raiting * 10);
   return (
-    <Box
-      sx={{
-        width: 120,
-        display: "flex",
-        alignItems: "center",
-        ml: 1,
-      }}
-    >
-      <Rating
-        name="text-feedback"
-        value={value}
-        size="small"
-        readOnly
-        precision={0.25}
-        emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
-      />
+    <Box sx={{ position: "absolute", bottom: 5, right: 5 }}>
+      <CircularProgress
+        determinate
+        size="md"
+        value={raiting * 10}
+        variant="soft"
+        sx={{ color: "#EEE" }}
+      >
+        {raiting * 10}%
+      </CircularProgress>
     </Box>
   );
 }
