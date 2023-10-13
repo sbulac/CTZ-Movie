@@ -3,6 +3,7 @@ import HomePage from "./Pages/HomePage";
 import NavBar from "./components/NavBar";
 import { Route, Routes } from "react-router-dom";
 import { ApiProvider } from "./components/Context/Context";
+import DetailsMovie from "./components/DetailsMovie";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
 
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/:id" element={<DetailsMovie />} />
         </Routes>
       </Box>
     </ApiProvider>

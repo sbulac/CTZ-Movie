@@ -19,7 +19,7 @@ const HomePage = () => {
         }}
       >
         <ApiContext.Consumer>
-          {({ loading, movies }) => (
+          {({ loading, movies, setMoviesId, MoviesId }) => (
             <MoviesContainer>
               {loading ? (
                 <>
@@ -34,6 +34,8 @@ const HomePage = () => {
                   {movies.map((item, index) => (
                     <Grid key={index} item xs={12} sm={5} md={3} lg={2}>
                       <SingleMovie
+                        handleClick={() => {setMoviesId(item.id)}}
+                        MoviesId={item.id}
                         adult={item.adult}
                         title={item["original_title"]}
                         overview={item.overview}

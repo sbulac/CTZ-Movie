@@ -8,8 +8,10 @@ import {
 
 import React from "react";
 import RaitingMovie from "../RaitingMovie";
+import { Link } from "react-router-dom";
+import { Movie } from "@mui/icons-material";
 
-const SingleMovie = ({ poster, title, popularity }) => {
+const SingleMovie = ({ poster, title, popularity, handleClick, MoviesId }) => {
   return (
     <Box
       sx={{
@@ -29,6 +31,9 @@ const SingleMovie = ({ poster, title, popularity }) => {
         }}
       >
         <CardActionArea
+          onClick={handleClick}
+          component={Link}
+          to={`/${MoviesId}`}
           sx={{
             display: "flex",
             alignItems: "center",

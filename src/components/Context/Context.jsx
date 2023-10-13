@@ -9,6 +9,7 @@ const ApiProvider = ({ children }) => {
   const [movies, setMovies] = useState({});
   const [loading, setLoading] = useState(true);
   const [pageNumber, setPageNumber] = useState(1);
+  const [moviesId, setMoviesId] = useState(null);
   let url = `https://api.themoviedb.org/3/discover/movie?include_adult=true&include_video=true&language=en-US&page=${pageNumber}&sort_by=popularity.desc`;
 
   const options = {
@@ -44,6 +45,9 @@ const ApiProvider = ({ children }) => {
         loading,
         pageNumber,
         setPageNumber,
+        moviesId,
+        setMoviesId,
+        setLoading,
       }}
     >
       {children}
