@@ -21,7 +21,7 @@ const HomePage = () => {
                         adult={item.adult}
                         title={item["original_title"]}
                         overview={item.overview}
-                        popularity={item.popularity}
+                        popularity={item["vote_average"]}
                         poster={item["poster_path"]}
                       />
                     </Grid>

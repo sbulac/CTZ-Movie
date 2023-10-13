@@ -5,9 +5,11 @@ import {
   CardMedia,
   Typography,
 } from "@mui/material";
-import React from "react";
 
-const SingleMovie = ({ poster, title }) => {
+import React from "react";
+import RaitingMovie from "../RaitingMovie";
+
+const SingleMovie = ({ poster, title, popularity }) => {
   return (
     <Box
       sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
@@ -33,7 +35,7 @@ const SingleMovie = ({ poster, title }) => {
             component="img"
             image={`https://image.tmdb.org/t/p/w500/${poster}`}
             sx={{
-              borderRadius: "15px",
+              borderRadius: "8px",
               height: 340.5,
               objectFit: "cover",
               flexGrow: 1,
@@ -44,7 +46,8 @@ const SingleMovie = ({ poster, title }) => {
               height: 340.5,
               width: "100%",
               position: "absolute",
-              background: "linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,212,255,0) 70%)"
+              background:
+                "linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,212,255,0) 70%)",
             }}
           >
             <Box sx={{ p: 1, textAlign: "start", color: "#EEE" }}>
@@ -52,6 +55,7 @@ const SingleMovie = ({ poster, title }) => {
                 {title}
               </Typography>
             </Box>
+            <RaitingMovie raiting={popularity} />
           </Box>
         </CardActionArea>
       </Card>
