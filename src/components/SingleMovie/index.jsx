@@ -26,7 +26,7 @@ const SingleMovie = ({ poster, title }) => {
             image={`https://image.tmdb.org/t/p/w500/${poster}`}
             sx={{
               height: 340.5,
-              objectFit: "contain",
+              objectFit: "cover",
               flexGrow: 1,
             }}
           />
