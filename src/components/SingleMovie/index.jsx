@@ -12,7 +12,7 @@ import RaitingMovie from "../RaitingMovie";
 const SingleMovie = ({ poster, title, popularity }) => {
   return (
     <Box
-      sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+      sx={{ maxWidth: 300, display: "flex", alignItems: "center", justifyContent: "center" }}
     >
       <Card
         sx={{
@@ -47,7 +47,7 @@ const SingleMovie = ({ poster, title, popularity }) => {
               width: "100%",
               position: "absolute",
               background:
-                "linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,212,255,0) 70%)",
+                "linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.8) 100%)",
             }}
           >
             <Box sx={{ p: 1, textAlign: "start", color: "#EEE" }}>

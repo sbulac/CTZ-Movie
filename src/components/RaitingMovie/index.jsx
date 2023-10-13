@@ -3,17 +3,27 @@ import Box from "@mui/material/Box";
 import CircularProgress from "@mui/joy/CircularProgress";
 
 export default function RaitingMovie({ raiting }) {
-  console.log(raiting * 10);
+  raiting = raiting * 10;
+  console.log(raiting);
+  let color;
+  if (raiting >= 70) {
+    color = "success";
+  } else if (raiting >= 50 <= 69) {
+    color = "warning";
+  } else {
+    color = "error";
+  }
   return (
     <Box sx={{ position: "absolute", bottom: 5, right: 5 }}>
       <CircularProgress
+        color={color}
         determinate
         size="md"
-        value={raiting * 10}
+        value={raiting}
         variant="soft"
         sx={{ color: "#EEE" }}
       >
-        {raiting * 10}%
+        {raiting}%
       </CircularProgress>
     </Box>
   );
