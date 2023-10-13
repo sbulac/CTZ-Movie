@@ -12,7 +12,7 @@ const SingleMovie = ({ poster, title }) => {
     <Box
       sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
     >
-      <Card sx={{ width: "max-content", borderRadius: "15px", maxWidth: 232 }}>
+      <Card sx={{ width: "max-content", borderRadius: "15px", maxWidth: 231 }}>
         <CardActionArea
           sx={{
             display: "flex",
@@ -25,7 +25,7 @@ const SingleMovie = ({ poster, title }) => {
             component="img"
             image={`https://image.tmdb.org/t/p/w500/${poster}`}
             sx={{
-              height: 350,
+              height: 340.5,
               objectFit: "contain",
               flexGrow: 1,
             }}
