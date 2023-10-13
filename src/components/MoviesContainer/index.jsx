@@ -4,8 +4,13 @@ import React from "react";
 const MoviesContainer = ({ children }) => {
   return (
     <Grid
-    py={5}
-      sx={{ minWidth: { xs: "100vw", display: "grid", gap: "30px" } }}
+      py={5}
+      sx={{
+        minWidth: "100%",
+        display: "grid",
+        gap: "30px",
+        justifyContent: "center",
+      }}
     >
       {children}
     </Grid>

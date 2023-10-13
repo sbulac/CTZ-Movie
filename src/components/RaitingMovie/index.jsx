@@ -14,13 +14,23 @@ export default function RaitingMovie({ raiting }) {
     color = "error";
   }
   return (
-    <Box sx={{ position: "absolute", bottom: 5, right: 5 }}>
+    <Box
+      sx={{
+        position: "absolute",
+        bottom: 5,
+        right: 5,
+        backgroundColor: "rgba(0,0,0,0.7)",
+        borderRadius: 100,
+        p: 0.3,
+      }}
+    >
       <CircularProgress
         color={color}
+        thickness={3}
         determinate
         size="md"
         value={raiting}
-        variant="soft"
+        variant="plain"
         sx={{ color: "#EEE" }}
       >
         {raiting}%

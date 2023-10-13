@@ -12,7 +12,12 @@ import RaitingMovie from "../RaitingMovie";
 const SingleMovie = ({ poster, title, popularity }) => {
   return (
     <Box
-      sx={{ maxWidth: 300, display: "flex", alignItems: "center", justifyContent: "center" }}
+      sx={{
+        maxWidth: 230,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
     >
       <Card
         sx={{
