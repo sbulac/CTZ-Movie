@@ -32,7 +32,10 @@ const SingleMovie = ({ poster, title, popularity, handleClick, MoviesId }) => {
         }}
       >
         <CardActionArea
-          onClick={handleClick}
+          onClick={() => {
+            handleClick;
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
           component={Link}
           to={`/${MoviesId}`}
           sx={{
@@ -59,6 +62,7 @@ const SingleMovie = ({ poster, title, popularity, handleClick, MoviesId }) => {
               sx={{
                 backgroundColor: "#131313",
                 borderRadius: "8px",
+                minWidth: 227,
                 height: { xs: 340.5, lg: 250 },
                 objectFit: "cover",
                 flexGrow: 1,

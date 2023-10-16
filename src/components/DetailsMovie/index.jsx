@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { ApiContext } from "../Context/Context";
 import axios from "axios";
 import { Box, Typography } from "@mui/material";
-import SingleMovieSkeleton from "../SingleMovieSkeleton";
+import MovieDetailsSkeleton from "../MovieDetailsSkeleton";
 
 const DetailsMovie = () => {
   const { id } = useParams();
@@ -37,7 +37,7 @@ const DetailsMovie = () => {
   return (
     <Box sx={{ minHeight: "100vh" }}>
       {loading ? (
-        <SingleMovieSkeleton />
+        <MovieDetailsSkeleton />
       ) : (
         <Box
           sx={{

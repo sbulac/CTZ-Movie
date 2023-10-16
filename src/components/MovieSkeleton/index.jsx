@@ -7,7 +7,6 @@ const MovieSkeleton = () => {
       sx={{
         width: "max-content",
         height: "max-content",
-        backgroundColor: "#B3B6B7",
         borderRadius: 1,
         display: "flex",
         flexDirection: "column",
@@ -18,7 +17,11 @@ const MovieSkeleton = () => {
     >
       <Skeleton
         variant="rectangular"
-        sx={{ height: { xs: 340.5, lg: 250 }, width: { xs: 227, lg: 166.67 } }}
+        sx={{
+          height: { xs: 340.5, lg: 250 },
+          width: { xs: 227, lg: 166.67 },
+          borderRadius: "8px",
+        }}
       />
       <Box
         sx={{
