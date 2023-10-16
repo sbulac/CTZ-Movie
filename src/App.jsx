@@ -8,15 +8,15 @@ import DetailsMovie from "./components/DetailsMovie";
 function App() {
   return (
     <ApiProvider>
-      <Box>
+      <Box sx={{ backgroundColor: "#121212" }}>
         <AppBar position="static">
-          <Toolbar>
+          <Toolbar sx={{ backgroundColor: "#16162A" }}>
             <Typography
               component="h1"
               variant="h4"
               fontWeight={400}
               color="inherit"
-              sx={{ flexGrow: 1 }}
+              sx={{ flexGrow: 1, fontWeight: "bold" }}
             >
               CTZ-Movie
             </Typography>

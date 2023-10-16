@@ -6,7 +6,15 @@ const PaginationLayout = () => {
   const { pageNumber, setPageNumber, infoApi } = useContext(ApiContext);
   return (
     <Pagination
-      sx={{ pb: 4 }}
+      sx={{
+        pb: 4,
+        "& .MuiPaginationItem-root": {
+          color: "#FFF", // Color de la letra (numeros de las paginas)
+        },
+        "& .MuiPaginationItem-page.Mui-selected": {
+          backgroundColor: "#16162A", // Color de la página seleccionada
+        },
+      }}
       count={500}
       defaultPage={infoApi.page}
       page={pageNumber}
@@ -14,7 +22,6 @@ const PaginationLayout = () => {
         setPageNumber(page);
         window.scrollTo({ top: 0, behavior: "smooth" });
       }}
-      color="primary"
     />
   );
 };

@@ -9,12 +9,12 @@ import {
 import React from "react";
 import RaitingMovie from "../RaitingMovie";
 import { Link } from "react-router-dom";
-import { Movie } from "@mui/icons-material";
 
 const SingleMovie = ({ poster, title, popularity, handleClick, MoviesId }) => {
   return (
     <Box
       sx={{
+        minWidth: 166,
         maxWidth: 230,
         display: "flex",
         alignItems: "center",
@@ -24,8 +24,9 @@ const SingleMovie = ({ poster, title, popularity, handleClick, MoviesId }) => {
     >
       <Card
         sx={{
-          width: "max-content",
+          minWidth: 166,
           maxWidth: 231,
+          width: "max-content",
           backgroundColor: "transparent",
           boxShadow: "none",
         }}
@@ -42,16 +43,28 @@ const SingleMovie = ({ poster, title, popularity, handleClick, MoviesId }) => {
             position: "relative",
           }}
         >
-          <CardMedia
-            component="img"
-            image={`https://image.tmdb.org/t/p/w500/${poster}`}
-            sx={{
-              borderRadius: "8px",
-              height: { xs: 340.5, lg: 250 },
-              objectFit: "cover",
-              flexGrow: 1,
-            }}
-          />
+          {poster ? (
+            <CardMedia
+              component="img"
+              image={`https://image.tmdb.org/t/p/w500/${poster}`}
+              sx={{
+                borderRadius: "8px",
+                height: { xs: 340.5, lg: 250 },
+                objectFit: "cover",
+                flexGrow: 1,
+              }}
+            />
+          ) : (
+            <Box
+              sx={{
+                backgroundColor: "#131313",
+                borderRadius: "8px",
+                height: { xs: 340.5, lg: 250 },
+                objectFit: "cover",
+                flexGrow: 1,
+              }}
+            />
+          )}
           <Box
             sx={{
               height: { xs: 340.5, lg: 250 },

@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { ApiContext } from "../Context/Context";
 import axios from "axios";
 import { Box, Typography } from "@mui/material";
+import SingleMovieSkeleton from "../SingleMovieSkeleton";
 
 const DetailsMovie = () => {
   const { id } = useParams();
@@ -34,39 +35,49 @@ const DetailsMovie = () => {
   }, [id]);
   console.log(movie);
   return (
-    <Box>
+    <Box sx={{ minHeight: "100vh" }}>
       {loading ? (
-        <span></span>
+        <SingleMovieSkeleton />
       ) : (
-        <>
-          <Box
-            component="img"
-            width={250}
-            height={400}
-            src={`https://image.tmdb.org/t/p/w500/${movie["poster_path"]}`}
-          />
-          <Typography>{movie["original_title"]}</Typography>
-          <br />
-          <Typography>{movie.overview}</Typography>
-          <br />
-          {movie["production_companies"].map((item, index) => (
-            <Box key={index}>
-              <Typography>{item.name}</Typography>
-              {item["logo_path"] ? (
-                <Box
-                  component="img"
-                  src={`https://image.tmdb.org/t/p/w500/${item["logo_path"]}`}
-                />
-              ) : (
-                <span>No Image</span>
-              )}
-            </Box>
-          ))}
-          <br />
-          {movie["production_countries"].map((item) => (
-            <Typography key={item.name}>{item.name}</Typography>
-          ))}
-        </>
+        <Box
+          sx={{
+            color: "#EEE",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: 5,
+            py: 4,
+            px: 2,
+          }}
+        >
+          <Typography
+            variant="h2"
+            sx={{ fontWeight: "bold", textAlign: "center", fontSize: 31 }}
+          >
+            {movie["original_title"]}
+          </Typography>
+          {movie["poster_path"] ? (
+            <Box
+              sx={{
+                height: 350,
+                borderRadius: 1,
+              }}
+              component="img"
+              src={`https://image.tmdb.org/t/p/w500${movie["poster_path"]}`}
+            />
+          ) : (
+            <span>No hay imagen</span>
+          )}
+          <Box sx={{ display: "flex", flexDirection: "column", gap: 1.5 }}>
+            <Typography
+              variant="h5"
+              sx={{ textAlign: "start", fontWeight: 500 }}
+            >
+              Overview
+            </Typography>
+            <Typography>{movie["overview"]}</Typography>
+          </Box>
+        </Box>
       )}
     </Box>
   );

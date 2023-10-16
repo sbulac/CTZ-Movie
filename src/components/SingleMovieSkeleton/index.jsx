@@ -1,7 +1,7 @@
 import { Box, Skeleton } from "@mui/material";
 import React from "react";
 
-const MovieSkeleton = () => {
+const SingleMovieSkeleton = () => {
   return (
     <Box
       sx={{
@@ -39,4 +39,4 @@ const MovieSkeleton = () => {
   );
 };
 
-export default MovieSkeleton;
+export default SingleMovieSkeleton;

@@ -30,7 +30,7 @@ const ApiProvider = ({ children }) => {
           setMovies(response.data.results);
           setInfoApi(response.data);
         })
-        .finally(() => setLoading(false));
+        .finally(() => setLoading(true));
     } catch (error) {
       console.error(error);
     }
