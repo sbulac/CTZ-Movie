@@ -26,6 +26,8 @@ const NavBar = () => {
       <Box sx={{ display: { xs: "none", md: "block" } }}>
         {navLinks.map((item) => (
           <Button
+            label="Name"
+            aria-labelledby="menu"
             component={Link}
             to={item.path}
             sx={{ color: "#FFFFFF" }}

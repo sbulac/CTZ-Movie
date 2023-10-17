@@ -50,12 +50,14 @@ const DetailsMovie = () => {
             px: 2,
           }}
         >
+          {/* Titulo */}
           <Typography
             variant="h2"
             sx={{ fontWeight: "bold", textAlign: "center", fontSize: 31 }}
           >
             {movie["original_title"]}
           </Typography>
+          {/* Poster */}
           {movie["poster_path"] ? (
             <Box
               sx={{
@@ -63,19 +65,93 @@ const DetailsMovie = () => {
                 borderRadius: 1,
               }}
               component="img"
+              alt={movie["original_title"]}
               src={`https://image.tmdb.org/t/p/w500${movie["poster_path"]}`}
             />
           ) : (
             <span>No hay imagen</span>
           )}
+          {/* Resumen */}
           <Box sx={{ display: "flex", flexDirection: "column", gap: 1.5 }}>
             <Typography
-              variant="h5"
-              sx={{ textAlign: "start", fontWeight: 500 }}
+              variant="h3"
+              sx={{ textAlign: "start", fontWeight: 500, fontSize: 25 }}
             >
               Overview
             </Typography>
             <Typography>{movie["overview"]}</Typography>
+          </Box>
+          {/* Generos */}
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              gap: 1.5,
+              width: "100%",
+            }}
+          >
+            <Typography
+              variant="h3"
+              sx={{ textAlign: "start", fontWeight: 500, fontSize: 25 }}
+            >
+              Genders
+            </Typography>
+            <Box sx={{ display: "flex", gap: 1.5 }}>
+              {movie["genres"] ? (
+                movie["genres"].map((item, index) => (
+                  <Typography key={index}>{item.name}</Typography>
+                ))
+              ) : (
+                <span>No genres</span>
+              )}
+            </Box>
+          </Box>
+          {/* Productores */}
+          <Box
+            sx={{
+              width: "100%",
+              display: "flex",
+              flexDirection: "column",
+              gap: 4,
+            }}
+          >
+            <Typography
+              variant="h3"
+              sx={{ textAlign: "start", fontWeight: 500, fontSize: 25 }}
+            >
+              Production Companies
+            </Typography>
+            <Box sx={{ display: "flex", flexDirection: "column", gap: 4 }}>
+              {movie["production_companies"] ? (
+                movie["production_companies"].map((item, index) => (
+                  <Box
+                    key={index}
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: 2,
+                      alignItems: "center",
+                    }}
+                  >
+                    {item["logo_path"] ? (
+                      <Box
+                        sx={{ width: 200 }}
+                        component="img"
+                        src={`https://image.tmdb.org/t/p/w500${item["logo_path"]}`}
+                        alt={item["logo_path"]}
+                      />
+                    ) : (
+                      <></>
+                    )}
+                    <Typography variant="h4" sx={{ fontSize: 20 }}>
+                      {item.name}
+                    </Typography>
+                  </Box>
+                ))
+              ) : (
+                <span>No production</span>
+              )}
+            </Box>
           </Box>
         </Box>
       )}
